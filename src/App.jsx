@@ -27,17 +27,16 @@ function App() {
 
     <>
 
-      <div className='container'>
-        <h1>CIBO</h1>
-        <div className='row row-cols-1' >
-
+      <div className="container">
+        <div className="row row-cols-1 g-3" >
           {
             posts.map((post, index) => (
-              <div className="col" key={index}>
-                <div className="card h-100">
-                  <img className="card-img-top" src={`http://localhost:3003${post.image}`} alt={post.name} />
+              <div className="col p-3" key={index}>
+                <div className="card d-flex flex-row">
+                  <img className="img-container d-flex" src={`http://localhost:3003${post.image}`} alt={post.name} />
                   <div className="card-body">
                     <h3>{post.title}</h3>
+                    <p className='fs-6'> {post.content}</p>
                   </div>
                 </div>
               </div>

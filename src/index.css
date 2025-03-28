@@ -1,1 +1,16 @@
-@import 'bootstrap'
+@import 'bootstrap';
+
+
+.card {
+    background-color: aqua;
+}
+
+
+
+.img-container {
+    min-width: 300px;
+
+    img {
+        object-fit: cover;
+    }
+}
