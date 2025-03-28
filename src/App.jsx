@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 const api_endpoint = 'http://localhost:3003/api/v1/posts'
 
 function App() {
-  const [post, setpost] = useState([])
+  const [posts, setPosts] = useState([])
 
 
   useEffect(() => {
@@ -16,6 +16,8 @@ function App() {
       .then(res => res.json())
       .then(data => {
         console.log(data);
+
+        setPosts(data)
       })
 
   }
@@ -26,13 +28,19 @@ function App() {
     <>
 
       <div className='container'>
-        <h1>post</h1>
-        <div>
+        <h1>CIBO</h1>
+        <div className='row row-cols-1' >
 
           {
-            post.map(posts => (
-              <div>{post}</div>
-
+            posts.map((post, index) => (
+              <div className="col" key={index}>
+                <div className="card h-100">
+                  <img className="card-img-top" src={`http://localhost:3003${post.image}`} alt={post.name} />
+                  <div className="card-body">
+                    <h3>{post.title}</h3>
+                  </div>
+                </div>
+              </div>
             ))
           }
         </div>
